@@ -1,6 +1,6 @@
-# BMW_RT_Remote
+# BMW RT Remote
 
-BMW RT11xxRT remote control to Bluetooth adapter version 1.2 by Peter Luijer <peter@luijer.org>
+BMW RT11xxRT remote control to Bluetooth adapter version 1.7 by Peter Luijer <peter@luijer.org>
 
    Arduino script for a Bluetooth remote control connected designed to the external radio buttons of a BMW R11xxRT series of motorcycles.
    The script could also serve other uses, since it's actually nothing more than a programmable Bluetooth BLE keyboard controller.
