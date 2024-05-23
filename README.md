@@ -15,13 +15,13 @@ TIP: When serial (debug) output is not working, make sure you've selected the co
 
 Current button assignments:
 
-Button  | Press       | Long press
---------+-------------+-----------------------------------------
-MUTE/TP | Play/pause  | Unlock screen / close active application
-LEFT    | Prev. track | Start music player
-UP      | Vol. up     | Take screenshot
-RIGHT   | Next track  | Start Google maps
-DOWN    | Vol. down   | Lock screen
+	  Button  | Press       | Long press
+	  --------+-------------+-----------------------------------------
+	  MUTE/TP | Play/pause  | Unlock screen / close active application
+	  LEFT    | Prev. track | Start music player
+	  UP      | Vol. up     | Take screenshot
+	  RIGHT   | Next track  | Start Google maps
+	  DOWN    | Vol. down   | Lock screen
 
 Usage:
 Simply make sure everything is connected up, open your phone's Bluetooth settings and connect it to "BMW RT Remote"; that's it!
@@ -32,34 +32,38 @@ Normally you can't fully unlock your phone, but if you add this remote to your "
 - On iOS: <To-be-investigated>
 
 v1.0 - Initial release
+
 v1.1 - Made code work on ESP32-C3 (and possible -S series) controlers; for this a modified version of EasyButton and BlueKeyboard is needed
 	- Made use of Adafruit's NeoPixel library instead of FastLED, because of compatibility issues with C3 ESP's
+ 
 v1.2 - Added deep sleep, to preserve power, when remote is not connected for 60 seconds
-	  Waking the remote up again can be achieved by pressing the "Mute" button
-	  
-	  Current consumption, using an M5 Stamp C3 with LED enabled (using the on-board NeoPixel LED):
-	  - Not connected: 74.5mA
-	  - Connected: 72.8mA
-	  - Sleep: 0.41mA
-
-	  Current consumption, using a Seeed Studio XIAO ESP32C3 with LED disabled (it doesn't have an on-board LED):
-	  - Not connected: 88.3mA
-	  - Connected: 86.0mA      
-	  - Sleep: 0.25mA              
+       Waking the remote up again can be achieved by pressing the "Mute" button
+       
+       Current consumption, using an M5 Stamp C3 with LED enabled (using the on-board NeoPixel LED):       
+       - Not connected: 74.5mA       
+       - Connected: 72.8mA       
+       - Sleep: 0.41mA
+       
+       Current consumption, using a Seeed Studio XIAO ESP32C3 with LED disabled (it doesn't have an on-board LED):       
+       - Not connected: 88.3mA
+       - Connected: 86.0mA       
+       - Sleep: 0.25mA       
+       
 v1.5 - Added OTA update functionality   
-	  Moved original code into an inherited version of a newly created class, so it's easier to split code between Bluetooth 
-	  and WiFi modes
+       Moved original code into an inherited version of a newly created class, so it's easier to split code between Bluetooth and WiFi modes
 	  
-	  Update mode can be enabled by holding the "Mute" and "Right" buttons while resetting the ESP32
-	  When update mode is enabled, connect to the AP called "BMW RT Remote" (disregard any warnings about not having internet
-	  access), open a web browser and open the URL: http://192.168.4.1 
-	  On the page shown, you can upload new firmware to the device; the ESP will restart when the upload is finished
+       Update mode can be enabled by holding the "Mute" and "Right" buttons while resetting the ESP32
+       When update mode is enabled, connect to the AP called "BMW RT Remote" (disregard any warnings about not having internet access).
+       Open a web browser window and open the URL: http://192.168.4.1 
+       On the page shown, you can upload new firmware to the device; the ESP will restart when the upload is finished
 	  
-	  Mode LED colors (if LED-code is enabled):
-	  - Bluetooth: red (disconnected) and blue (connected)
-	  - Wifi: green
+       Mode LED colors (if LED-code is enabled):
+       - Bluetooth: red (disconnected) and blue (connected)
+       - Wifi: green
+       
 v1.6 - Reorganized OTA mode by using iframes
-	  Included build information to OTA page
+       Included build information to OTA page
+       
 v1.7 - Added internal and external power supply monitoring, to enable proper shutdown when power is turned off 
-	  For this option to function properly an external backup battery (with charger) has to be connected
-	  Both internal and external power supplies can be monitored (but only the external one is actually used) 
+       For this option to function properly an external backup battery (with charger) has to be connected
+       Both internal and external power supplies can be monitored (but only the external one is actually used)
